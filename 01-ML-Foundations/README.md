@@ -87,7 +87,7 @@ Where:
 Mean Squared Error (MSE) measures the average squared difference between actual and predicted values:
 
 $$
-\operatorname{MSE} = \frac{1}{m}\sum_{i=1}^{m}(y_i-\hat{y}_i)^2
+\text{MSE} = \frac{1}{m}\sum_{i=1}^{m}(y_i-\hat{y}_i)^2
 $$
 
 Here, \(m\) is the number of samples, \(y_i\) is the actual value, and \(\hat{y}\_i\) is the prediction.
@@ -133,7 +133,7 @@ Where \(\mathbf{w}\) defines the orientation of the boundary and \(b\) is its bi
 The classifier predicts a class based on the sign of the decision function:
 
 $$
-f(\mathbf{x})=\operatorname{sign}(\mathbf{w}^{T}\mathbf{x}+b)
+f(\mathbf{x})=\text{sign}(\mathbf{w}^{T}\mathbf{x}+b)
 $$
 
 ### Maximum Margin
