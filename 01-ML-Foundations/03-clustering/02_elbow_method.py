@@ -13,9 +13,6 @@ Features:
     - Sepal width
     - Petal length
     - Petal width
-
-Run:
-    uv run python 02_elbow_method.py
 """
 
 # %% 1. Imports
