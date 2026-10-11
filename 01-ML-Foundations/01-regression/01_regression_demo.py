@@ -1,3 +1,15 @@
+"""
+Machine Learning Foundations
+Topic: Regression Demo
+
+Dataset:
+Create a simple dataset with pandas.
+
+Learning objectives:
+- Load a built-in dataset.
+- Train a simple linear regression model.
+- Show important values like Intercept, Slope, MSE, and R².
+"""
 
 import numpy as np
 import pandas as pd

@@ -1,7 +1,4 @@
-
 """
-03_train_test_split_and_model_evaluation.py
-
 Machine Learning Foundations
 Topic: Train/Test Split and Model Evaluation
 

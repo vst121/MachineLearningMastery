@@ -1,7 +1,4 @@
-
 """
-02-data-visualization-and-eda.py
-
 Machine Learning Foundations
 Topic: Data Visualization and Exploratory Data Analysis (EDA)
 

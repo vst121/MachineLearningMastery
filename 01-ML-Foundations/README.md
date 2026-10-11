@@ -19,7 +19,7 @@ The goal is to understand how these algorithms work, implement them in Python, e
 ├── 01-regression/
 │   ├── regression_demo.py
 │   └── ...
-├── 02-svm/
+├── 02-classification/
 │   ├── svm_demo.py
 │   └── ...
 ├── 03-clustering/
@@ -48,7 +48,7 @@ Run the demonstrations:
 
 ```bash
 uv run python 01-regression/regression_demo.py
-uv run python 02-svm/svm_demo.py
+uv run python 02-classification/svm_demo.py
 uv run python 03-clustering/kmeans_demo.py
 ```
 
