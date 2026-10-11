@@ -52,10 +52,10 @@ df.head()
 # 3. Explore the data
 
 print("Summary statistics:")
-display(df.describe().round(2))
+print(df.describe().round(2))
 
 print("\nMissing values:")
-display(df.isnull().sum())
+print(df.isnull().sum())
 
 
 # %%
@@ -109,7 +109,7 @@ coefficients = coefficients.sort_values(
     ascending=False,
 )
 
-display(coefficients.round(2))
+print(coefficients.round(2))
 
 
 # %%
@@ -124,7 +124,7 @@ predictions = pd.DataFrame({
 })
 
 print("First five test predictions:")
-display(predictions.round(2))
+print(predictions.round(2))
 
 
 # %%
@@ -151,7 +151,7 @@ comparison = pd.DataFrame({
 })
 
 print("Training vs. test performance:")
-display(comparison.round(2))
+print(comparison.round(2))
 
 
 # %%
@@ -338,6 +338,6 @@ new_observation = X_train.mean().to_frame().T
 prediction = model.predict(new_observation)
 
 print("New observation:")
-display(new_observation.round(3))
+print(new_observation.round(3))
 
 print(f"Predicted target value: {prediction[0]:.2f}")

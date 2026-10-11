@@ -48,10 +48,10 @@ print("\nDataset information:")
 df.info()
 
 print("\nSummary statistics:")
-display(df.describe())
+print(df.describe())
 
 print("\nMissing values:")
-display(df.isnull().sum())
+print(df.isnull().sum())
 
 
 # %%
@@ -216,7 +216,7 @@ results = pd.DataFrame({
     "Predicted": y_test_pred,
 })
 
-display(results.head())
+print(results.head())
 
 plt.figure(figsize=(8, 5))
 
