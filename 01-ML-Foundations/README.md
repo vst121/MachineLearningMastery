@@ -17,14 +17,14 @@ The goal is to understand how these algorithms work, implement them in Python, e
 ```text
 01-ML-Foundations/
 ├── 01-regression/
-│   ├── README.md
-│   └── regression_demo.py
+│   ├── regression_demo.py
+│   └── ...
 ├── 02-svm/
-│   ├── README.md
-│   └── svm_demo.py
+│   ├── svm_demo.py
+│   └── ...
 ├── 03-clustering/
-│   ├── README.md
-│   └── kmeans_demo.py
+│   ├── kmeans_demo.py
+│   └── ...
 └── README.md
 ```
 
