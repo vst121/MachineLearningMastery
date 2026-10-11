@@ -7,6 +7,7 @@ Learning objectives:
 - Understand model coefficients.
 - Split data into training and test sets.
 - Evaluate and compare models.
+- Visualize a regression plane using two features.
 - Visualize predictions and residuals.
 """
 
@@ -83,7 +84,7 @@ print("Test observations:", len(X_test))
 
 
 # ============================================================
-# 5. Train the model
+# 5. Train the multiple linear regression model
 # ============================================================
 
 model = LinearRegression()
@@ -152,7 +153,83 @@ print(comparison.round(2))
 
 
 # ============================================================
-# 8. Visualize actual vs. predicted values
+# 8. Visualize multiple linear regression in 3D
+# ============================================================
+
+# A model with two features can be visualized as a plane.
+# Use BMI and blood pressure for this illustration.
+#
+# Important:
+# This is a separate two-feature model.
+# The main model above still uses all ten features.
+
+visualization_features = ["bmi", "bp"]
+
+visualization_model = LinearRegression()
+
+visualization_model.fit(
+    X_train[visualization_features],
+    y_train,
+)
+
+# Create a grid covering the training data's feature ranges.
+bmi_values = np.linspace(
+    X_train["bmi"].min(),
+    X_train["bmi"].max(),
+    30,
+)
+
+bp_values = np.linspace(
+    X_train["bp"].min(),
+    X_train["bp"].max(),
+    30,
+)
+
+bmi_grid, bp_grid = np.meshgrid(bmi_values, bp_values)
+
+grid = pd.DataFrame({
+    "bmi": bmi_grid.ravel(),
+    "bp": bp_grid.ravel(),
+})
+
+# Predict a target value for each point on the grid.
+target_grid = visualization_model.predict(grid)
+target_grid = target_grid.reshape(bmi_grid.shape)
+
+fig = plt.figure(figsize=(10, 7))
+ax = fig.add_subplot(111, projection="3d")
+
+# Show actual test observations.
+ax.scatter(
+    X_test["bmi"],
+    X_test["bp"],
+    y_test,
+    color="blue",
+    alpha=0.6,
+    label="Actual test observations",
+)
+
+# Show the fitted regression plane.
+ax.plot_surface(
+    bmi_grid,
+    bp_grid,
+    target_grid,
+    cmap="viridis",
+    alpha=0.4,
+)
+
+ax.set_title("Multiple Linear Regression: Regression Plane")
+ax.set_xlabel("BMI")
+ax.set_ylabel("Blood pressure")
+ax.set_zlabel("Target value")
+ax.legend()
+
+plt.tight_layout()
+plt.show()
+
+
+# ============================================================
+# 9. Visualize actual vs. predicted values
 # ============================================================
 
 results = pd.DataFrame({
@@ -169,10 +246,14 @@ sns.scatterplot(
     s=70,
 )
 
-min_value = min(results["Actual"].min(),
-                results["Predicted"].min())
-max_value = max(results["Actual"].max(),
-                results["Predicted"].max())
+min_value = min(
+    results["Actual"].min(),
+    results["Predicted"].min(),
+)
+max_value = max(
+    results["Actual"].max(),
+    results["Predicted"].max(),
+)
 
 plt.plot(
     [min_value, max_value],
@@ -191,7 +272,7 @@ plt.show()
 
 
 # ============================================================
-# 9. Visualize residuals
+# 10. Visualize residuals
 # ============================================================
 
 residuals = y_test.to_numpy() - y_test_pred
@@ -214,13 +295,13 @@ plt.show()
 
 
 # ============================================================
-# 10. Predict for a new observation
+# 11. Predict for a new observation
 # ============================================================
 
-# Use the mean feature values as a valid example input.
+# Use the mean feature values as an example input.
 new_observation = X_train.mean().to_frame().T
 
 prediction = model.predict(new_observation)
 
-print("\n10. New prediction")
+print("\n11. New prediction")
 print(f"Predicted target value: {prediction[0]:.2f}")
