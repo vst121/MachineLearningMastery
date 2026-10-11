@@ -1,3 +1,4 @@
+
 """
 Machine Learning Foundations
 Topic: Train/Test Split and Model Evaluation
@@ -5,9 +6,12 @@ Topic: Train/Test Split and Model Evaluation
 Learning objectives:
 - Split a dataset into training and test sets.
 - Train a model using training data only.
+- Understand the slope and intercept of a linear regression model.
 - Evaluate predictions on unseen data.
 - Understand MAE, MSE, RMSE, and R².
-- Visualize model performance using Matplotlib and Seaborn.
+- Visualize the relationship between a feature and the target.
+- Compare actual and predicted values.
+- Make predictions for new observations.
 """
 
 import numpy as np
@@ -64,33 +68,80 @@ print(f"Test observations: {len(X_test)}")
 
 model = LinearRegression()
 
+# Learn the relationship using training data only.
 model.fit(X_train, y_train)
 
 print("\n3. Trained model")
 print(f"Intercept: {model.intercept_:.2f}")
 print(f"Slope: {model.coef_[0]:.2f}")
 
+print("\nLinear regression equation:")
+print(
+    f"Predicted target = "
+    f"{model.intercept_:.2f} + "
+    f"({model.coef_[0]:.2f} * BMI)"
+)
+
 
 # ============================================================
-# 4. Make predictions
+# 4. Visualize the relationship and regression line
+# ============================================================
+
+# Predict target values for the training BMI range.
+bmi_range = pd.DataFrame({
+    "bmi": np.linspace(X["bmi"].min(), X["bmi"].max(), 100)
+})
+
+target_predictions = model.predict(bmi_range)
+
+plt.figure(figsize=(8, 5))
+
+# Show the observed data points.
+plt.scatter(
+    X_train["bmi"],
+    y_train,
+    alpha=0.6,
+    label="Training observations",
+)
+
+# Show the fitted regression line.
+plt.plot(
+    bmi_range["bmi"],
+    target_predictions,
+    color="red",
+    linewidth=2,
+    label="Fitted regression line",
+)
+
+plt.title("Simple Linear Regression: BMI vs. Target")
+plt.xlabel("BMI (standardized)")
+plt.ylabel("Target value")
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()
+
+
+# ============================================================
+# 5. Make predictions
 # ============================================================
 
 y_train_pred = model.predict(X_train)
 y_test_pred = model.predict(X_test)
 
-print("\n4. Predictions")
+print("\n5. Predictions")
 print("First five test predictions:")
 
 print(
     pd.DataFrame({
         "Actual": y_test.iloc[:5].to_numpy(),
         "Predicted": y_test_pred[:5],
-    })
+    }).round(2)
 )
 
 
 # ============================================================
-# 5. Evaluate the model
+# 6. Evaluate the model
 # ============================================================
 
 def evaluate_model(y_true, y_pred):
@@ -108,28 +159,31 @@ def evaluate_model(y_true, y_pred):
 train_metrics = evaluate_model(y_train, y_train_pred)
 test_metrics = evaluate_model(y_test, y_test_pred)
 
-comparison = pd.DataFrame(
-    {
-        "Training": train_metrics,
-        "Test": test_metrics,
-    }
-)
+comparison = pd.DataFrame({
+    "Training": train_metrics,
+    "Test": test_metrics,
+})
 
-print("\n5. Model evaluation")
+print("\n6. Model evaluation")
 print(comparison.round(2))
 
 
 # ============================================================
-# 6. Visualize actual vs. predicted values using Matplotlib
+# 7. Visualize actual vs. predicted values using Matplotlib
 # ============================================================
 
 plt.figure(figsize=(8, 5))
 
-plt.scatter(y_test, y_test_pred, alpha=0.7)
+plt.scatter(
+    y_test,
+    y_test_pred,
+    alpha=0.7,
+)
 
 min_value = min(y_test.min(), y_test_pred.min())
 max_value = max(y_test.max(), y_test_pred.max())
 
+# Points on this line represent perfect predictions.
 plt.plot(
     [min_value, max_value],
     [min_value, max_value],
@@ -148,7 +202,7 @@ plt.show()
 
 
 # ============================================================
-# 7. Visualize actual vs. predicted values using Seaborn
+# 8. Visualize actual vs. predicted values using Seaborn
 # ============================================================
 
 results = pd.DataFrame({
@@ -182,9 +236,10 @@ plt.show()
 
 
 # ============================================================
-# 8. Visualize prediction errors (residuals)
+# 9. Visualize prediction errors (residuals)
 # ============================================================
 
+# Residual = actual value - predicted value.
 residuals = y_test.to_numpy() - y_test_pred
 
 plt.figure(figsize=(8, 5))
@@ -195,25 +250,33 @@ sns.histplot(
     kde=True,
 )
 
-plt.axvline(0, color="red", linestyle="--")
+plt.axvline(
+    0,
+    color="red",
+    linestyle="--",
+    label="Zero residual",
+)
 
 plt.title("Distribution of Prediction Errors")
 plt.xlabel("Residual (actual - predicted)")
 plt.ylabel("Frequency")
+plt.legend()
 plt.tight_layout()
 plt.show()
 
 
 # ============================================================
-# 9. Make a prediction for a new observation
+# 10. Make a prediction for a new observation
 # ============================================================
 
+# BMI is standardized in this dataset, not expressed as
+# a person's usual BMI value.
 new_observation = pd.DataFrame({
     "bmi": [0.05],
 })
 
 prediction = model.predict(new_observation)
 
-print("\n9. Prediction for a new observation")
+print("\n10. Prediction for a new observation")
 print(f"Standardized BMI: {new_observation['bmi'].iloc[0]}")
 print(f"Predicted target value: {prediction[0]:.2f}")
