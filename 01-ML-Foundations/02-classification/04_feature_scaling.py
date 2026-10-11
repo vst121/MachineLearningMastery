@@ -177,3 +177,5 @@ axes[1].tick_params(axis="x", rotation=20)
 
 plt.tight_layout()
 plt.show()
+
+# %%

@@ -17,13 +17,13 @@ The goal is to understand how these algorithms work, implement them in Python, e
 ```text
 01-ML-Foundations/
 ├── 01-regression/
-│   ├── regression_demo.py
+│   ├── 01_regression_demo.py
 │   └── ...
 ├── 02-classification/
-│   ├── svm_demo.py
+│   ├── 01_svm_demo.py
 │   └── ...
 ├── 03-clustering/
-│   ├── kmeans_demo.py
+│   ├── 01_kmeans_demo.py
 │   └── ...
 └── README.md
 ```
@@ -44,13 +44,25 @@ cd 01-ML-Foundations
 uv sync
 ```
 
-Run the demonstrations:
+Here is the rewritten section updated to highlight both full script execution via terminal and interactive cell-by-cell execution using the `# %%` markers:
+
+---
+
+### Run the Demonstrations
+
+You can execute your scripts in two flexible ways depending on your workflow:
+
+- **Full Script Execution via Terminal:** Run the entire script end-to-end using `uv run`:
 
 ```bash
-uv run python 01-regression/regression_demo.py
-uv run python 02-classification/svm_demo.py
-uv run python 03-clustering/kmeans_demo.py
+uv run python 01-ML-Foundations/01_regression_demo.py
+uv run python 02-ML-Foundations/01_svm_demo.py
+uv run python 03-ML-Foundations/01_kmeans_demo.py
+
 ```
+
+- **Interactive Cell-by-Cell Execution (`# %%`):**
+  Each script is structured with Jupyter-style cell markers (`# %%`). In VS Code, this allows you to run individual sections of the file interactively—letting you inspect variables, tweak hyperparameters, and view matplotlib plots block-by-block without re-running the entire script.
 
 ## 1. Regression
 
