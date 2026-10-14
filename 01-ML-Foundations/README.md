@@ -18,16 +18,16 @@ The goal is to understand how these algorithms work, implement them in Python, e
 ```text
 01-ML-Foundations/
 ├── 01-regression/
-│   ├── 01_regression_demo.py
+│   ├── 01_regression.py
 │   └── ...
 ├── 02-classification/
-│   ├── 01_svm_demo.py
+│   ├── 01_svm.py
 │   └── ...
 ├── 03-clustering/
-│   ├── 01_kmeans_demo.py
+│   ├── 01_kmeans.py
 │   └── ...
 ├── 04-optimization/
-│   ├── 01_cost_function_demo.py
+│   ├── 01_cost_function.py
 │   └── ...
 └── README.md
 ```
@@ -56,10 +56,10 @@ You can execute your scripts in two flexible ways depending on your workflow.
 Run the entire script end-to-end using `uv run`:
 
 ```bash
-uv run python 01-regression/01_regression_demo.py
-uv run python 02-classification/01_svm_demo.py
-uv run python 03-clustering/01_kmeans_demo.py
-uv run python 04-optimization/01_cost_function_demo.py
+uv run python 01-regression/01_regression.py
+uv run python 02-classification/01_svm.py
+uv run python 03-clustering/01_kmeans.py
+uv run python 04-optimization/01_cost_function.py
 ```
 
 ### 2. Interactive Cell-by-Cell Execution (`# %%`)
