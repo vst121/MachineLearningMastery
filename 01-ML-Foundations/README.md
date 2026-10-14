@@ -85,7 +85,7 @@ Examples include predicting house prices, estimating demand, and forecasting num
 
 ### Linear Regression
 
-A linear regression model with \(n\) features can be expressed as:
+A linear regression model with $$n$$ features can be expressed as:
 
 $$
 \hat{y} = \theta_0 + \theta_1 x_1 + \cdots + \theta_n x_n
@@ -106,20 +106,20 @@ $$
 \text{MSE} = \frac{1}{m}\sum_{i=1}^{m}(y_i-\hat{y}_i)^2
 $$
 
-Here, \(m\) is the number of samples, \(y_i\) is the actual value, and \(\hat{y}\_i\) is the predicted value.
+Here, $$m$$ is the number of samples, $$y_i$$ is the actual value, and $$\hat{y}\_i$$ is the predicted value.
 
 ### Evaluation Metrics
 
 - **MAE:** Average absolute prediction error.
 - **MSE:** Average squared prediction error.
 - **RMSE:** Square root of MSE, expressed in the target's units.
-- **\(R^2\):** Measures model performance relative to a baseline that predicts the target mean.
+- **$$R^2$$:** Measures model performance relative to a baseline that predicts the target mean.
 
 ### Exercises
 
 1. Train a simple linear regression model using one feature.
 2. Extend the model to multiple features.
-3. Compare MAE, MSE, RMSE, and \(R^2\).
+3. Compare MAE, MSE, RMSE, and $$R^2$$.
 4. Investigate how outliers affect regression performance.
 
 ## 2. Classification
@@ -150,7 +150,7 @@ $$
 \mathbf{w}^{T}\mathbf{x}+b=0
 $$
 
-Where \(\mathbf{w}\) defines the orientation of the boundary and \(b\) is the bias.
+Where $$\mathbf{w}$$ defines the orientation of the boundary and $$b$$ is the bias.
 
 For binary classification, the prediction is determined by the sign of the decision function:
 
@@ -229,7 +229,7 @@ For imbalanced datasets, precision, recall, and F1-score can be more informative
 
 ## 3. Clustering
 
-K-Means is an unsupervised learning algorithm that partitions data into \(K\) clusters based on distances to cluster centroids.
+K-Means is an unsupervised learning algorithm that partitions data into $$K$$ clusters based on distances to cluster centroids.
 
 Unlike regression and classification, K-Means does not require labeled target values.
 
@@ -237,7 +237,7 @@ Unlike regression and classification, K-Means does not require labeled target va
 
 - Unsupervised learning
 - Centroids and cluster assignments
-- Choosing the number of clusters \(K\)
+- Choosing the number of clusters $$K$$
 - Within-cluster sum of squares (WCSS)
 - The elbow method
 - Silhouette score
@@ -254,20 +254,20 @@ $$
 
 Where:
 
-- \(K\) is the number of clusters.
-- \(C_k\) is the set of samples assigned to cluster \(k\).
-- \(\boldsymbol{\mu}\_k\) is the centroid of cluster \(k\).
+- $$K$$ is the number of clusters.
+- $$C_k$$ is the set of samples assigned to cluster $$k$$.
+- $$\boldsymbol{\mu}\_k$$ is the centroid of cluster $$k$$.
 
 ### Algorithm
 
-1. Initialize \(K\) centroids.
+1. Initialize $$K$$ centroids.
 2. Assign each sample to its nearest centroid.
 3. Recalculate each centroid as the mean of its assigned samples.
 4. Repeat assignment and update steps until convergence or a stopping condition is reached.
 
-### Choosing \(K\)
+### Choosing $$K$$
 
-The **elbow method** compares WCSS across different values of \(K\). The preferred value may be near the point where additional clusters produce diminishing improvements.
+The **elbow method** compares WCSS across different values of $$K$$. The preferred value may be near the point where additional clusters produce diminishing improvements.
 
 The **silhouette score** measures how well each sample fits its assigned cluster compared with neighboring clusters. Higher scores generally indicate better-separated clusters.
 
@@ -275,7 +275,7 @@ The **silhouette score** measures how well each sample fits its assigned cluster
 
 1. Apply K-Means to a dataset without labels.
 2. Visualize the resulting clusters and centroids.
-3. Compare several values of \(K\) using the elbow method.
+3. Compare several values of $$K$$ using the elbow method.
 4. Evaluate cluster separation using the silhouette score.
 5. Observe how feature scaling changes the results.
 
@@ -309,10 +309,10 @@ $$
 
 Where:
 
-- \(J(\boldsymbol{\theta})\) is the cost associated with the model parameters.
-- \(m\) is the number of samples.
-- \(y_i\) is the actual value.
-- \(\hat{y}\_i\) is the predicted value.
+- $$J(\boldsymbol{\theta})$$ is the cost associated with the model parameters.
+- $$m$$ is the number of samples.
+- $$y_i$$ is the actual value.
+- $$\hat{y}\_i$$ is the predicted value.
 
 The objective is to find model parameters that minimize the cost.
 
