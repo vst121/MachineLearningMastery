@@ -155,7 +155,7 @@ Where \(\mathbf{w}\) defines the orientation of the boundary and \(b\) is the bi
 For binary classification, the prediction is determined by the sign of the decision function:
 
 $$
-f(\mathbf{x})=\operatorname{sign}(\mathbf{w}^{T}\mathbf{x}+b)
+f(\mathbf{x})=\text{sign}(\mathbf{w}^{T}\mathbf{x}+b)
 $$
 
 ### Maximum Margin
