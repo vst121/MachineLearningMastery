@@ -329,9 +329,9 @@ $$
 
 Where:
 
-- \(\theta_j\) is a model parameter.
-- \(\alpha\) is the learning rate.
-- \(\frac{\partial J}{\partial\theta_j}\) is the partial derivative of the cost with respect to that parameter.
+- $$\(\theta_j\)$$ is a model parameter.
+- $$\(\alpha\)$$ is the learning rate.
+- $$\(\frac{\partial J}{\partial\theta_j}\)$$ is the partial derivative of the cost with respect to that parameter.
 
 The learning rate controls the size of each update. If it is too small, convergence can be slow. If it is too large, optimization may overshoot or fail to converge.
 
