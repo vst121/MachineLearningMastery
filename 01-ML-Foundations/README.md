@@ -106,7 +106,7 @@ $$
 \text{MSE} = \frac{1}{m}\sum_{i=1}^{m}(y_i-\hat{y}_i)^2
 $$
 
-Here, $$m$$ is the number of samples, $$y_i$$ is the actual value, and $$\hat{y}\_i$$ is the predicted value.
+Here, $$m$$ is the number of samples, $$y_i$$ is the actual value, and $$\hat{y}_i$$ is the predicted value.
 
 ### Evaluation Metrics
 
@@ -309,10 +309,10 @@ $$
 
 Where:
 
-- $$J(\boldsymbol{\theta})$$ is the cost associated with the model parameters.
+- $$J(boldsymbol{theta})$$ is the cost associated with the model parameters.
 - $$m$$ is the number of samples.
 - $$y_i$$ is the actual value.
-- $$\hat{y}\_i$$ is the predicted value.
+- $$\hat{y}_i$$ is the predicted value.
 
 The objective is to find model parameters that minimize the cost.
 
