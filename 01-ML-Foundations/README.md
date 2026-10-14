@@ -93,10 +93,10 @@ $$
 
 Where:
 
-- \(\hat{y}\) is the predicted value.
-- \(x_i\) represents an input feature.
-- \(\theta_0\) is the intercept.
-- \(\theta_i\) represents a learned coefficient.
+- $$\hat{y}$$ is the predicted value.
+- $$x_i $$ represents an input feature.
+- $$\theta_0$$ is the intercept.
+- $$\theta_i $$ represents a learned coefficient.
 
 ### Mean Squared Error
 
