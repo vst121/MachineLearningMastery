@@ -1,16 +1,17 @@
 # Machine Learning Foundations 🚀
 
-This level introduces three fundamental machine learning approaches: **Regression, Support Vector Machines (SVM), and K-Means Clustering**.
+This level introduces four fundamental areas of Machine Learning: **Regression, Support Vector Machines (SVM), K-Means Clustering, and Optimization**.
 
 The goal is to understand how these algorithms work, implement them in Python, evaluate their results, and recognize when to use each one.
 
 ## Learning Roadmap
 
-| Topic                         | Learning Focus                                            | Type                  |
-| ----------------------------- | --------------------------------------------------------- | --------------------- |
-| Regression                    | Predicting continuous values                              | Supervised Learning   |
-| Support Vector Machines (SVM) | Classification, decision boundaries, margins, and kernels | Supervised Learning   |
-| K-Means Clustering            | Discovering groups in unlabeled data                      | Unsupervised Learning |
+| Topic                           | Learning Focus                                                          | Type                  |
+| ------------------------------- | ----------------------------------------------------------------------- | --------------------- |
+| Regression                      | Predicting continuous values                                            | Supervised Learning   |
+| Support Vector Machines (SVM)   | Classification, decision boundaries, margins, and kernels               | Supervised Learning   |
+| K-Means Clustering              | Discovering groups in unlabeled data                                    | Unsupervised Learning |
+| Optimization and Cost Functions | Understanding model error, Gradient Descent, and parameter optimization | Core ML Concepts      |
 
 ## Repository Structure
 
@@ -24,6 +25,9 @@ The goal is to understand how these algorithms work, implement them in Python, e
 │   └── ...
 ├── 03-clustering/
 │   ├── 01_kmeans_demo.py
+│   └── ...
+├── 04-optimization/
+│   ├── 01_cost_function_demo.py
 │   └── ...
 └── README.md
 ```
@@ -41,28 +45,26 @@ From the repository root:
 
 ```bash
 cd 01-ML-Foundations
-uv sync
 ```
 
-Here is the rewritten section updated to highlight both full script execution via terminal and interactive cell-by-cell execution using the `# %%` markers:
+## Run the Demonstrations
 
----
+You can execute your scripts in two flexible ways depending on your workflow.
 
-### Run the Demonstrations
+### 1. Full Script Execution via Terminal
 
-You can execute your scripts in two flexible ways depending on your workflow:
-
-- **Full Script Execution via Terminal:** Run the entire script end-to-end using `uv run`:
+Run the entire script end-to-end using `uv run`:
 
 ```bash
-uv run python 01-ML-Foundations/01_regression_demo.py
-uv run python 02-ML-Foundations/01_svm_demo.py
-uv run python 03-ML-Foundations/01_kmeans_demo.py
-
+uv run python 01-regression/01_regression_demo.py
+uv run python 02-classification/01_svm_demo.py
+uv run python 03-clustering/01_kmeans_demo.py
+uv run python 04-optimization/01_cost_function_demo.py
 ```
 
-- **Interactive Cell-by-Cell Execution (`# %%`):**
-  Each script is structured with Jupyter-style cell markers (`# %%`). In VS Code, this allows you to run individual sections of the file interactively—letting you inspect variables, tweak hyperparameters, and view matplotlib plots block-by-block without re-running the entire script.
+### 2. Interactive Cell-by-Cell Execution (`# %%`)
+
+Each script is structured with Jupyter-style cell markers (`# %%`). In VS Code, this allows you to run individual sections of the file interactively, letting you inspect variables, tweak hyperparameters, and view Matplotlib plots block by block without rerunning the entire script.
 
 ## 1. Regression
 
@@ -75,7 +77,7 @@ Examples include predicting house prices, estimating demand, and forecasting num
 - Simple and multiple linear regression
 - Features, targets, model parameters, and predictions
 - Cost functions and model fitting
-- Gradient descent
+- Gradient Descent
 - Training and test datasets
 - Model evaluation
 
@@ -102,7 +104,7 @@ $$
 \text{MSE} = \frac{1}{m}\sum_{i=1}^{m}(y_i-\hat{y}_i)^2
 $$
 
-Here, \(m\) is the number of samples, \(y_i\) is the actual value, and \(\hat{y}\_i\) is the prediction.
+Here, \(m\) is the number of samples, \(y_i\) is the actual value, and \(\hat{y}\_i\) is the predicted value.
 
 ### Evaluation Metrics
 
@@ -243,15 +245,88 @@ The **silhouette score** measures how well each sample fits its assigned cluster
 4. Evaluate cluster separation using the silhouette score.
 5. Observe how feature scaling changes the results.
 
+## 4. Optimization and Cost Functions
+
+Optimization is the process of finding model parameters that minimize or maximize an objective. In Machine Learning, optimization commonly means minimizing a cost function to improve model predictions.
+
+This topic introduces the foundations of how models learn and how their parameters are adjusted to reduce prediction errors.
+
+### Key Concepts
+
+- Cost functions and loss functions
+- Mean Squared Error (MSE) and Mean Absolute Error (MAE)
+- Model parameters and gradients
+- Gradient Descent
+- Learning rate
+- Convergence and stopping criteria
+- Local and global minima
+
+### Cost Function
+
+A cost function measures how well a model's predictions match the actual values across a dataset.
+
+For regression, Mean Squared Error is a common choice:
+
+$$
+J(\boldsymbol{\theta}) =
+\frac{1}{m}\sum_{i=1}^{m}
+\left(y_i-\hat{y}_i\right)^2
+$$
+
+Where:
+
+- \(J(\boldsymbol{\theta})\) is the cost associated with the model parameters.
+- \(m\) is the number of samples.
+- \(y_i\) is the actual value.
+- \(\hat{y}\_i\) is the predicted value.
+
+The objective is to find model parameters that minimize the cost.
+
+### Gradient Descent
+
+Gradient Descent iteratively updates model parameters in the direction that reduces the cost.
+
+The update rule is:
+
+$$
+\theta_j :=
+\theta_j-\alpha\frac{\partial J(\boldsymbol{\theta})}{\partial\theta_j}
+$$
+
+Where:
+
+- \(\theta_j\) is a model parameter.
+- \(\alpha\) is the learning rate.
+- \(\frac{\partial J}{\partial\theta_j}\) is the partial derivative of the cost with respect to that parameter.
+
+The learning rate controls the size of each update. If it is too small, convergence can be slow. If it is too large, optimization may overshoot or fail to converge.
+
+### Learning Rate and Convergence
+
+During optimization, track the cost across iterations to understand whether the model is learning effectively.
+
+- A steadily decreasing cost usually indicates progress.
+- A very small learning rate can require many iterations.
+- An excessively large learning rate can cause oscillation or divergence.
+- A stopping criterion can be based on a maximum number of iterations or sufficiently small changes in cost.
+
+### Exercises
+
+1. Implement Gradient Descent from scratch using Python and NumPy.
+2. Minimize a simple mathematical cost function.
+3. Apply Gradient Descent to fit a linear regression model.
+4. Compare different learning rates and plot the cost over iterations.
+5. Compare the results with a solution from scikit-learn.
+
 ## Common Machine Learning Workflow
 
-Across all three topics, follow a consistent workflow:
+Across all four topics, follow a consistent workflow:
 
 1. Understand the problem and dataset.
 2. Inspect and prepare the data.
 3. Split data into training and test sets when appropriate.
 4. Build a baseline model.
-5. Train the model.
+5. Train or optimize the model.
 6. Evaluate results using suitable metrics.
 7. Inspect errors and limitations.
 8. Document findings and experiments.
