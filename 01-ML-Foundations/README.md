@@ -1,17 +1,17 @@
 # Machine Learning Foundations 🚀
 
-This level introduces four fundamental areas of Machine Learning: **Regression, Support Vector Machines (SVM), K-Means Clustering, and Optimization**.
+This level introduces four fundamental areas of Machine Learning: **Regression, Classification, Clustering, and Optimization**.
 
 The goal is to understand how these algorithms work, implement them in Python, evaluate their results, and recognize when to use each one.
 
 ## Learning Roadmap
 
-| Topic                           | Learning Focus                                                          | Type                  |
-| ------------------------------- | ----------------------------------------------------------------------- | --------------------- |
-| Regression                      | Predicting continuous values                                            | Supervised Learning   |
-| Support Vector Machines (SVM)   | Classification, decision boundaries, margins, and kernels               | Supervised Learning   |
-| K-Means Clustering              | Discovering groups in unlabeled data                                    | Unsupervised Learning |
-| Optimization and Cost Functions | Understanding model error, Gradient Descent, and parameter optimization | Core ML Concepts      |
+| Topic                           | Learning Focus                                                           | Type                  |
+| ------------------------------- | ------------------------------------------------------------------------ | --------------------- |
+| Regression                      | Predicting continuous values                                             | Supervised Learning   |
+| Classification                  | Predicting categorical labels, decision boundaries, margins, and kernels | Supervised Learning   |
+| Clustering                      | Discovering groups in unlabeled data                                     | Unsupervised Learning |
+| Optimization and Cost Functions | Understanding model error, Gradient Descent, and parameter optimization  | Core ML Concepts      |
 
 ## Repository Structure
 
@@ -22,7 +22,7 @@ The goal is to understand how these algorithms work, implement them in Python, e
 │   └── ...
 ├── 02-classification/
 │   ├── 01_svm.py
-│   └── ...
+│   ├── ...
 ├── 03-clustering/
 │   ├── 01_kmeans.py
 │   └── ...
@@ -31,6 +31,8 @@ The goal is to understand how these algorithms work, implement them in Python, e
 │   └── ...
 └── README.md
 ```
+
+The filenames above describe the intended learning sequence. Keep existing filenames unchanged if they differ in your actual repository.
 
 ## Prerequisites
 
@@ -64,7 +66,7 @@ uv run python 04-optimization/01_cost_function.py
 
 ### 2. Interactive Cell-by-Cell Execution (`# %%`)
 
-Each script is structured with Jupyter-style cell markers (`# %%`). In VS Code, this allows you to run individual sections of the file interactively, letting you inspect variables, tweak hyperparameters, and view Matplotlib plots block by block without rerunning the entire script.
+Each script is structured with Jupyter-style cell markers (`# %%`). In VS Code, this allows you to run individual sections of the file interactively, inspect variables, adjust hyperparameters, and view Matplotlib plots without rerunning the entire script.
 
 ## 1. Regression
 
@@ -120,21 +122,27 @@ Here, \(m\) is the number of samples, \(y_i\) is the actual value, and \(\hat{y}
 3. Compare MAE, MSE, RMSE, and \(R^2\).
 4. Investigate how outliers affect regression performance.
 
-## 2. Support Vector Machines (SVM)
+## 2. Classification
 
-Support Vector Machines are supervised learning algorithms used primarily for classification. Support Vector Regression (SVR) applies related principles to regression.
+Classification is a supervised learning task that predicts **categorical labels** from input features. This section introduces Support Vector Machines (SVM) as a foundation for understanding classification algorithms.
 
 ### Key Concepts
 
+- Classification versus regression
+- Features, labels, and class predictions
 - Decision boundaries and separating hyperplanes
 - Maximum-margin classification
 - Support vectors
 - Hard and soft margins
-- The regularization parameter \(C\)
 - Linear and nonlinear kernels
 - Feature scaling
+- Cross-validation
+- Hyperparameter tuning
+- Model generalization and overfitting
 
-### Decision Boundary
+### Support Vector Machines (SVM)
+
+SVMs seek a decision boundary that separates classes while maximizing the margin between them. Support vectors are the training samples that determine the learned boundary.
 
 A linear decision boundary can be represented as:
 
@@ -142,12 +150,12 @@ $$
 \mathbf{w}^{T}\mathbf{x}+b=0
 $$
 
-Where \(\mathbf{w}\) defines the orientation of the boundary and \(b\) is its bias.
+Where \(\mathbf{w}\) defines the orientation of the boundary and \(b\) is the bias.
 
-The classifier predicts a class based on the sign of the decision function:
+For binary classification, the prediction is determined by the sign of the decision function:
 
 $$
-f(\mathbf{x})=\text{sign}(\mathbf{w}^{T}\mathbf{x}+b)
+f(\mathbf{x})=\operatorname{sign}(\mathbf{w}^{T}\mathbf{x}+b)
 $$
 
 ### Maximum Margin
@@ -164,17 +172,37 @@ $$
 y_i(\mathbf{w}^{T}\mathbf{x}_i+b)\geq 1
 $$
 
-These constraints encourage correct classification while maximizing the margin between the classes.
+These constraints enforce correct classification and maximize the margin under the assumption that the classes are linearly separable.
 
 ### Kernels
 
 Kernels allow SVMs to model nonlinear decision boundaries.
 
-Common choices include:
-
 - **Linear:** Suitable for approximately linearly separable data.
 - **Polynomial:** Models polynomial relationships.
-- **RBF:** Can model more flexible nonlinear boundaries.
+- **RBF:** Models more flexible nonlinear relationships.
+
+### The `C` and `gamma` Parameters
+
+The `C` parameter controls the trade-off between a wider margin and training classification errors.
+
+- **Smaller `C`:** Allows more training errors in exchange for stronger regularization.
+- **Larger `C`:** Penalizes training errors more strongly and may produce a more complex boundary.
+
+For an RBF kernel, `gamma` controls how quickly the influence of individual training samples decreases with distance.
+
+- **Smaller `gamma`:** Produces broader influence and generally smoother decision boundaries.
+- **Larger `gamma`:** Produces more localized influence and can create more complex boundaries.
+
+The effects of `C` and `gamma` interact. Cross-validation helps identify combinations that generalize well to unseen data.
+
+### Cross-Validation and Hyperparameter Tuning
+
+- **StratifiedKFold:** Preserves class proportions across cross-validation folds.
+- **GridSearchCV:** Evaluates specified hyperparameter combinations.
+- **RandomizedSearchCV:** Samples hyperparameter combinations from specified distributions.
+- **Learning curves:** Compare training and cross-validation performance at different training-set sizes.
+- **Decision-boundary visualization:** Compare linear and nonlinear separation and inspect support vectors.
 
 ### Evaluation Metrics
 
@@ -189,11 +217,17 @@ For imbalanced datasets, precision, recall, and F1-score can be more informative
 ### Exercises
 
 1. Train an SVM classifier on a sample dataset.
-2. Compare linear and RBF kernels.
-3. Observe how changing \(C\) affects the decision boundary.
+2. Compare linear, polynomial, and RBF kernels.
+3. Observe how changing `C` affects the decision boundary.
 4. Compare performance with and without feature scaling.
+5. Use `StratifiedKFold` for cross-validation.
+6. Tune hyperparameters with `GridSearchCV`.
+7. Compare grid search with `RandomizedSearchCV`.
+8. Plot learning curves to investigate underfitting and overfitting.
+9. Experiment with different `gamma` values for the RBF kernel.
+10. Visualize decision boundaries and support vectors.
 
-## 3. K-Means Clustering
+## 3. Clustering
 
 K-Means is an unsupervised learning algorithm that partitions data into \(K\) clusters based on distances to cluster centroids.
 
@@ -315,36 +349,4 @@ During optimization, track the cost across iterations to understand whether the 
 1. Implement Gradient Descent from scratch using Python and NumPy.
 2. Minimize a simple mathematical cost function.
 3. Apply Gradient Descent to fit a linear regression model.
-4. Compare different learning rates and plot the cost over iterations.
-5. Compare the results with a solution from scikit-learn.
-
-## Common Machine Learning Workflow
-
-Across all four topics, follow a consistent workflow:
-
-1. Understand the problem and dataset.
-2. Inspect and prepare the data.
-3. Split data into training and test sets when appropriate.
-4. Build a baseline model.
-5. Train or optimize the model.
-6. Evaluate results using suitable metrics.
-7. Inspect errors and limitations.
-8. Document findings and experiments.
-
-**Avoid data leakage:** Information from the test set must not influence training or preprocessing decisions. Fit preprocessing transformations on the training data and apply them to the test data.
-
-## Technology Stack
-
-- Python
-- NumPy
-- pandas
-- Matplotlib
-- scikit-learn
-- uv
-
-## Learning Resources
-
-- [scikit-learn User Guide](https://scikit-learn.org/stable/user_guide.html)
-- [Linear Models](https://scikit-learn.org/stable/modules/linear_model.html)
-- [Support Vector Machines](https://scikit-learn.org/stable/modules/svm.html)
-- [Clustering](https://scikit-learn.org/stable/modules/clustering.html)
+4. Compare different learning rates and
