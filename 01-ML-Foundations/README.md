@@ -309,10 +309,10 @@ $$
 
 Where:
 
-- $$J(boldsymbol{theta})$$ is the cost associated with the model parameters.
-- $$m$$ is the number of samples.
-- $$y_i$$ is the actual value.
-- $$\hat{y}_i$$ is the predicted value.
+- $J(\boldsymbol{\theta})$ is the cost associated with the model parameters.
+- $m$ is the number of samples.
+- $y_i$ is the actual value.
+- $\hat{y}_i$ is the predicted value.
 
 The objective is to find model parameters that minimize the cost.
 
