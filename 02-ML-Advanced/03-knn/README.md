@@ -1,4 +1,4 @@
-# 03. K-Nearest Neighbors (KNN)
+# K-Nearest Neighbors (KNN)
 
 ## 1. 🎯 Overview
 
