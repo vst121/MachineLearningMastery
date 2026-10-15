@@ -43,7 +43,7 @@ $$
 For a classification problem, KNN predicts the class that occurs most frequently among the k nearest neighbors.
 
 $$
-\hat{y}=\operatorname{mode}(y_1,y_2,\ldots,y_k)
+\hat{y}=\text{mode}(y_1,y_2,\ldots,y_k)
 $$
 
 ### 3.4. Distance-Weighted Voting
