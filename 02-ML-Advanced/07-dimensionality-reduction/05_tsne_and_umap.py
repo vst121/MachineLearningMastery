@@ -116,6 +116,7 @@ try:
         n_neighbors=15,
         min_dist=0.1,
         random_state=42,
+        n_jobs=1,
     )
 
     X_umap = reducer.fit_transform(X_scaled)
