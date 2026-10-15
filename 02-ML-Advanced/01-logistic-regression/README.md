@@ -234,9 +234,7 @@ Regularization discourages overly large coefficients and can improve generalizat
 A regularized objective can be written as:
 
 $$
-J_{\text{regularized}}
-=
-J_{\text{data}}+\lambda R(\boldsymbol{\theta})
+J_{\text{regularized}} = J_{\text{data}}+\lambda R(\boldsymbol{\theta})
 $$
 
 where R is the penalty function and lambda controls its strength.
