@@ -189,15 +189,11 @@ The parameters are learned from training data by optimizing the objective functi
 For unregularized binary Logistic Regression, the gradients of the average log loss are:
 
 $$
-\frac{\partial J}{\partial \boldsymbol{\theta}}
-=
-\frac{1}{m}\mathbf{X}^{T}(\hat{\mathbf{p}}-\mathbf{y})
+\frac{\partial J}{\partial \boldsymbol{\theta}} = \frac{1}{m}\mathbf{X}^{T}(\hat{\mathbf{p}}-\mathbf{y})
 $$
 
 $$
-\frac{\partial J}{\partial b}
-=
-\frac{1}{m}\sum_{i=1}^{m}(\hat{p}_i-y_i)
+\frac{\partial J}{\partial b} = \frac{1}{m}\sum_{i=1}^{m}(\hat{p}_i-y_i)
 $$
 
 A gradient-based optimizer can update the parameters as follows:
