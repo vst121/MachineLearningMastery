@@ -118,7 +118,7 @@ $$
 The Rectified Linear Unit is defined as:
 
 $$
-\operatorname{ReLU}(x)=\max(0,x)
+\text{ReLU}(x)=\max(0,x)
 $$
 
 Its derivative, away from zero, is:
@@ -185,7 +185,7 @@ The difference from Leaky ReLU is that \(\alpha\) is learned during training rat
 GELU is defined using the standard normal cumulative distribution function:
 
 $$
-\operatorname{GELU}(x)=x\Phi(x)
+\text{GELU}(x)=x\Phi(x)
 $$
 
 where \(\Phi(x)\) is the cumulative distribution function of a standard normal distribution.
@@ -193,7 +193,7 @@ where \(\Phi(x)\) is the cumulative distribution function of a standard normal d
 A commonly used approximation is:
 
 $$
-\operatorname{GELU}(x)\approx
+\text{GELU}(x)\approx
 \frac{x}{2}
 \left[
 1+\tanh\left(
@@ -221,7 +221,7 @@ Leaky ReLU and PReLU preserve a negative slope, which can mitigate this issue.
 Softmax converts a vector of logits into a probability distribution over \(K\) classes.
 
 $$
-\operatorname{softmax}(z_i)=
+\text{softmax}(z_i)=
 \frac{e^{z_i}}
 {\sum_{j=1}^{K}e^{z_j}}
 $$
@@ -235,13 +235,13 @@ where:
 For every class \(i\):
 
 $$
-0 < \operatorname{softmax}(z_i) < 1
+0 < \text{softmax}(z_i) < 1
 $$
 
 and:
 
 $$
-\sum_{i=1}^{K}\operatorname{softmax}(z_i)=1
+\sum_{i=1}^{K}\text{softmax}(z_i)=1
 $$
 
 **Properties**
@@ -254,7 +254,7 @@ $$
 A common stable formulation subtracts the largest logit before exponentiation:
 
 $$
-\operatorname{softmax}(z_i)=
+\text{softmax}(z_i)=
 \frac{e^{z_i-m}}
 {\sum_{j=1}^{K}e^{z_j-m}}
 $$
