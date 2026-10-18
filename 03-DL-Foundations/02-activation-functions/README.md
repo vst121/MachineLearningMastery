@@ -1,4 +1,4 @@
-# 02. Activation Functions
+# Activation Functions
 
 Activation functions introduce nonlinearity into neural networks, enabling them to learn complex relationships beyond linear transformations.
 
@@ -15,13 +15,13 @@ This module explores the mathematical foundations, practical implementations, an
 
 ## Implementations and Experiments
 
-| File | Topics |
-|---|---|
-| `01_step_and_sigmoid.py` | Step and sigmoid functions, threshold-based decisions, saturation |
-| `02_tanh.py` | Hyperbolic tangent, zero-centered outputs, sigmoid relationship |
-| `03_relu_and_variants.py` | ReLU, Leaky ReLU, PReLU, GELU, dying ReLU |
-| `04_softmax.py` | Logits, multiclass probabilities, numerical stability |
-| `05_activation_comparison.py` | Comparative visualizations, output behavior, practical use cases |
+| File                          | Topics                                                            |
+| ----------------------------- | ----------------------------------------------------------------- |
+| `01_step_and_sigmoid.py`      | Step and sigmoid functions, threshold-based decisions, saturation |
+| `02_tanh.py`                  | Hyperbolic tangent, zero-centered outputs, sigmoid relationship   |
+| `03_relu_and_variants.py`     | ReLU, Leaky ReLU, PReLU, GELU, dying ReLU                         |
+| `04_softmax.py`               | Logits, multiclass probabilities, numerical stability             |
+| `05_activation_comparison.py` | Comparative visualizations, output behavior, practical use cases  |
 
 ## 1. Why Activation Functions Matter
 
@@ -271,16 +271,16 @@ For multilabel classification, where several classes may independently be presen
 
 ## 7. Comparison of Activation Functions
 
-| Function | Output Range | Zero-Centered | Typical Use |
-|---|---|---|---|
-| Step | {0, 1} | No | Perceptron fundamentals |
-| Sigmoid | (0, 1) | No | Binary classification output |
-| Tanh | (-1, 1) | Yes | Selected hidden and recurrent layers |
-| ReLU | [0, ∞) | No | Hidden layers |
-| Leaky ReLU | Unbounded | No | Hidden layers |
-| PReLU | Unbounded | No | Hidden layers with learnable negative slope |
-| GELU | Unbounded | No | Transformers and modern neural networks |
-| Softmax | (0, 1) per class | No | Multiclass classification output |
+| Function   | Output Range     | Zero-Centered | Typical Use                                 |
+| ---------- | ---------------- | ------------- | ------------------------------------------- |
+| Step       | {0, 1}           | No            | Perceptron fundamentals                     |
+| Sigmoid    | (0, 1)           | No            | Binary classification output                |
+| Tanh       | (-1, 1)          | Yes           | Selected hidden and recurrent layers        |
+| ReLU       | [0, ∞)           | No            | Hidden layers                               |
+| Leaky ReLU | Unbounded        | No            | Hidden layers                               |
+| PReLU      | Unbounded        | No            | Hidden layers with learnable negative slope |
+| GELU       | Unbounded        | No            | Transformers and modern neural networks     |
+| Softmax    | (0, 1) per class | No            | Multiclass classification output            |
 
 ## 8. Implementation and Experiments
 
