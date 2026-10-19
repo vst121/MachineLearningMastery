@@ -97,10 +97,7 @@ GAN optimization can be unstable because the generator and discriminator continu
 **Wasserstein objective**
 
 $$
-\min_G \max_{D\in\mathcal{D}}
-\left[
-\mathbb{E}_{x\sim p_{\mathrm{data}}}[D(x)]
--
+\min_G \max_{D\in\mathcal{D}} \left[ \mathbb{E}_{x\sim p_{\mathrm{data}}}[D(x)] -
 \mathbb{E}_{z\sim p_z}[D(G(z))]
 \right]
 $$
