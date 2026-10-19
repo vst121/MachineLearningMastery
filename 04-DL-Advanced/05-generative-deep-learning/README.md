@@ -30,9 +30,7 @@ $$
 **Mean Squared Error (MSE)**
 
 $$
-L_{\mathrm{reconstruction}}
-=
-\frac{1}{N}
+L_{\mathrm{reconstruction}} = \frac{1}{N}
 \sum_{i=1}^{N}(x_i-\hat{x}_i)^2
 $$
 
@@ -45,9 +43,7 @@ A VAE learns a probability distribution over latent representations instead of m
 **Approximate posterior**
 
 $$
-q_{\phi}(z \mid x)
-=
-\mathcal{N}
+q_{\phi}(z \mid x) = \mathcal{N}
 \left(
 z;\mu_{\phi}(x),
 \operatorname{diag}(\sigma_{\phi}^{2}(x))
@@ -65,9 +61,7 @@ $$
 **Evidence Lower Bound (ELBO) objective**
 
 $$
-L_{\mathrm{VAE}}
-=
--\mathbb{E}_{q_{\phi}(z\mid x)}
+L_{\mathrm{VAE}} = -\mathbb{E}_{q_{\phi}(z\mid x)}
 [\log p_{\theta}(x\mid z)]
 +
 D_{\mathrm{KL}}
@@ -122,8 +116,7 @@ Diffusion models learn to reverse a gradual process of adding noise to data.
 **Forward diffusion**
 
 $$
-q(x_t\mid x_{t-1})
-=
+q(x_t\mid x_{t-1}) =
 \mathcal{N}
 \left(
 x_t;
@@ -135,16 +128,14 @@ $$
 Define the cumulative product:
 
 $$
-\bar{\alpha}_t
-=
+\bar{\alpha}_t =
 \prod_{s=1}^{t}(1-\beta_s)
 $$
 
 The noisy sample can be generated directly from the original sample:
 
 $$
-x_t
-=
+x_t =
 \sqrt{\bar{\alpha}_t}\,x_0
 +
 \sqrt{1-\bar{\alpha}_t}\,\epsilon,
@@ -155,8 +146,7 @@ $$
 **Noise prediction objective**
 
 $$
-L_{\mathrm{diffusion}}
-=
+L_{\mathrm{diffusion}} =
 \mathbb{E}_{x_0,t,\epsilon}
 \left[
 \left\|
