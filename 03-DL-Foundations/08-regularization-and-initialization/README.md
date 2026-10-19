@@ -1,4 +1,4 @@
-# 08 - Regularization and Initialization
+# Regularization and Initialization
 
 ## Learning Objectives
 
