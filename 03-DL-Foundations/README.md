@@ -29,7 +29,7 @@ By completing this module, you will be able to:
 | 02  | Activation Functions                 | Sigmoid, tanh, ReLU, Leaky ReLU, softmax, nonlinear transformations                                                    |
 | 03  | Loss Functions                       | Mean squared error, binary cross-entropy, multiclass cross-entropy, logits, prediction errors                          |
 | 04  | Backpropagation and Autograd         | Derivatives, chain rule, computational graphs, gradient calculation, automatic differentiation                         |
-| 05  | Gradient-Based Optimization          | Gradient descent, stochastic gradient descent, mini-batches, learning rates, momentum, Adam                            |
+| 05  | Optimization Algorithms              | Gradient descent, stochastic gradient descent, mini-batches, learning rates, momentum, Adam                            |
 | 06  | PyTorch Fundamentals                 | Tensors, tensor operations, `nn.Module`, autograd, optimizers, datasets, data loaders, training loops                  |
 | 07  | Training Dynamics and Generalization | Epochs, batches, learning curves, overfitting, underfitting, convergence, vanishing and exploding gradients            |
 | 08  | Regularization and Initialization    | Xavier initialization, He initialization, L1/L2 regularization, weight decay, dropout, batch normalization             |
