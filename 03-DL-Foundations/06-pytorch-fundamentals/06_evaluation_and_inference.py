@@ -148,10 +148,12 @@ def train_model(model, train_loader, val_loader, device, epochs=40):
             )
 
 
+
 def demonstrate_train_eval_modes(model, device):
     section("1. Training Mode vs Evaluation Mode")
 
-    sample = torch.randn(1, 2, device=device)
+    # BatchNorm needs more than one sample per channel in training mode.
+    sample = torch.randn(4, 2, device=device)
 
     model.train()
     train_output_1 = model(sample)
@@ -162,14 +164,14 @@ def demonstrate_train_eval_modes(model, device):
         eval_output_1 = model(sample)
         eval_output_2 = model(sample)
 
-    print("Training mode output 1:", train_output_1.item())
-    print("Training mode output 2:", train_output_2.item())
-    print("Evaluation mode output 1:", eval_output_1.item())
-    print("Evaluation mode output 2:", eval_output_2.item())
+    print("Training mode outputs 1:", train_output_1.detach().flatten())
+    print("Training mode outputs 2:", train_output_2.detach().flatten())
+    print("Evaluation mode outputs 1:", eval_output_1.flatten())
+    print("Evaluation mode outputs 2:", eval_output_2.flatten())
 
     print("\nDropout may cause training outputs to differ.")
     print("In evaluation mode, Dropout is disabled.")
-    print("BatchNorm also uses stored running statistics in eval mode.")
+    print("BatchNorm uses stored running statistics in eval mode.")
 
 
 def demonstrate_gradient_tracking(model, device):
