@@ -23,7 +23,7 @@ The focus is on understanding architectural decisions, implementing core mechani
 | 03-attention-and-transformers             | Attention, self-attention, positional encoding, multi-head attention, Transformer blocks     |
 | 04-transfer-learning-and-finetuning       | Pretrained models, feature extraction, freezing layers, fine-tuning strategies               |
 | 05-generative-deep-learning               | Autoencoders, VAEs, GANs, latent spaces, generative objectives                               |
-| 06-ddvanced-training-and-gpu-optimization | Mixed precision, gradient accumulation, profiling, memory optimization, distributed training |
+| 06-advanced-training-and-gpu-optimization | Mixed precision, gradient accumulation, profiling, memory optimization, distributed training |
 
 ## Implementation and Experiments
 
