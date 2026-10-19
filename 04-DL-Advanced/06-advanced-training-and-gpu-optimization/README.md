@@ -1,3 +1,4 @@
+
 # Advanced Training and GPU Optimization
 
 ## Learning Objectives
@@ -66,18 +67,68 @@ $$
 
 Communication overhead, synchronization, and workload imbalance can reduce scaling efficiency.
 
+### 5. Gradient Accumulation
+
+For K microbatches of equal size, gradient accumulation computes the average gradient:
+
+$$
+g = \frac{1}{K}\sum_{k=1}^{K}g_k
+$$
+
+The effective batch size is:
+
+$$
+B_{\text{effective}} = B_{\text{micro}} \times K
+$$
+
+This allows training with a larger effective batch size while processing smaller microbatches.
+
+### 6. Activation Checkpointing
+
+Activation checkpointing trades additional computation for reduced activation memory.
+
+$$
+M_{\text{checkpointed}} < M_{\text{standard}}
+$$
+
+$$
+T_{\text{checkpointed}} > T_{\text{standard}}
+$$
+
+The actual memory savings and runtime overhead depend on the model architecture and checkpointing strategy.
+
+### 7. Optimization Benchmarking
+
+The speedup achieved by an optimization is:
+
+$$
+\text{Speedup} =
+\frac{T_{\text{baseline}}}{T_{\text{optimized}}}
+$$
+
+The percentage reduction in execution time is:
+
+$$
+\text{Time Reduction (\%)} =
+\frac{T_{\text{baseline}}-T_{\text{optimized}}}
+{T_{\text{baseline}}}
+\times 100
+$$
+
+These metrics help compare baseline and optimized configurations under equivalent workloads.
+
 ## Core Concepts
 
-| Concept                 | Purpose                                                      |
-| ----------------------- | ------------------------------------------------------------ |
-| Profiling               | Identify actual performance bottlenecks                      |
-| Mixed precision         | Reduce memory use and accelerate supported operations        |
-| Gradient accumulation   | Simulate larger effective batches using smaller microbatches |
-| Gradient checkpointing  | Trade additional computation for lower activation memory     |
-| Efficient data loading  | Reduce input pipeline bottlenecks                            |
-| torch.compile           | Optimize supported PyTorch execution paths                   |
-| DistributedDataParallel | Train across multiple GPUs or processes                      |
-| Benchmarking            | Validate performance improvements objectively                |
+| Concept                  | Purpose                                                      |
+| ------------------------ | ------------------------------------------------------------ |
+| Profiling                | Identify actual performance bottlenecks                      |
+| Mixed precision          | Reduce memory use and accelerate supported operations       |
+| Gradient accumulation    | Simulate larger effective batches using smaller microbatches |
+| Gradient checkpointing   | Trade additional computation for lower activation memory     |
+| Efficient data loading   | Reduce input pipeline bottlenecks                            |
+| torch.compile            | Optimize supported PyTorch execution paths                  |
+| DistributedDataParallel  | Train across multiple GPUs or processes                      |
+| Benchmarking             | Validate performance improvements objectively               |
 
 ## Implementation and Experiments
 
