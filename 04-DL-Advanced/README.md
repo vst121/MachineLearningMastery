@@ -16,14 +16,14 @@ The focus is on understanding architectural decisions, implementing core mechani
 
 ## Core Concepts
 
-| Module                                     | Core Topics                                                                                  |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| 01. Convolutional Neural Networks          | Convolutions, kernels, feature maps, pooling, receptive fields, CNN architectures            |
-| 02. Recurrent Neural Networks              | Sequence modeling, RNNs, LSTMs, GRUs, temporal dependencies                                  |
-| 03. Attention and Transformers             | Attention, self-attention, positional encoding, multi-head attention, Transformer blocks     |
-| 04. Transfer Learning and Fine-Tuning      | Pretrained models, feature extraction, freezing layers, fine-tuning strategies               |
-| 05. Generative Deep Learning               | Autoencoders, VAEs, GANs, latent spaces, generative objectives                               |
-| 06. Advanced Training and GPU Optimization | Mixed precision, gradient accumulation, profiling, memory optimization, distributed training |
+| Module                                    | Core Topics                                                                                  |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------- |
+| 01-convolutional-neural-networks          | Convolutions, kernels, feature maps, pooling, receptive fields, CNN architectures            |
+| 02-recurrent-neural-networks              | Sequence modeling, RNNs, LSTMs, GRUs, temporal dependencies                                  |
+| 03-attention-and-transformers             | Attention, self-attention, positional encoding, multi-head attention, Transformer blocks     |
+| 04-transfer-learning-and-finetuning       | Pretrained models, feature extraction, freezing layers, fine-tuning strategies               |
+| 05-generative-deep-learning               | Autoencoders, VAEs, GANs, latent spaces, generative objectives                               |
+| 06-ddvanced-training-and-gpu-optimization | Mixed precision, gradient accumulation, profiling, memory optimization, distributed training |
 
 ## Implementation and Experiments
 
