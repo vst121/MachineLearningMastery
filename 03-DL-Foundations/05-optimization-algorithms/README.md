@@ -23,9 +23,7 @@ This module covers gradient descent, stochastic optimization, momentum, adaptive
 Gradient descent updates parameters in the direction opposite to the gradient.
 
 $$
-\theta_{t+1}
-=
-\theta_t - \eta \nabla_\theta L(\theta_t)
+\theta_{t+1} = \theta_t - \eta \nabla_\theta L(\theta_t)
 $$
 
 Where:
