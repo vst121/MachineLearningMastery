@@ -9,8 +9,6 @@ Experiments:
 - BF16 automatic mixed precision where supported
 - Training time, throughput, accuracy, and peak GPU memory
 
-Run:
-    uv run python "04-DL-Advanced/06. Advanced Training and GPU Optimization/02_mixed_precision_training.py"
 """
 
 from __future__ import annotations

@@ -10,8 +10,6 @@ Experiments:
 3. Activation checkpointing.
 4. Combined gradient accumulation and activation checkpointing.
 
-Run:
-    uv run python "04-DL-Advanced/06. Advanced Training and GPU Optimization/03_gpu_memory_optimization.py"
 """
 
 from __future__ import annotations

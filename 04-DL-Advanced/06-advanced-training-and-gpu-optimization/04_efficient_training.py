@@ -8,8 +8,6 @@ Experiments:
 2. Eager execution with optimized data loading.
 3. Compiled execution where supported.
 
-Run:
-    uv run python "04-DL-Advanced/06. Advanced Training and GPU Optimization/04_efficient_training.py"
 """
 
 from __future__ import annotations
