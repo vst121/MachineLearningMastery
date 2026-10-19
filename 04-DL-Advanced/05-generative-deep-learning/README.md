@@ -46,7 +46,7 @@ $$
 q_{\phi}(z \mid x) = \mathcal{N}
 \left(
 z;\mu_{\phi}(x),
-\operatorname{diag}(\sigma_{\phi}^{2}(x))
+\text{diag}(\sigma_{\phi}^{2}(x))
 \right)
 $$
 
@@ -80,11 +80,9 @@ A GAN trains two neural networks with competing objectives.
 **Original minimax objective**
 
 $$
-\min_G \max_D
-\left[
+\min_G \max_D \left[
 \mathbb{E}_{x\sim p_{\mathrm{data}}}
-[\log D(x)]
-+
+[\log D(x)] +
 \mathbb{E}_{z\sim p_z}
 [\log(1-D(G(z)))]
 \right]
