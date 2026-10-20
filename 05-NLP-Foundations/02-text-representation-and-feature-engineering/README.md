@@ -97,33 +97,25 @@ TF-IDF gives higher weights to terms that are important within a document but re
 Term frequency can be normalized by the number of token occurrences:
 
 $$
-\text{TF}(t,d)
-=
-\frac{f_{t,d}}{\sum_{w \in d}f_{w,d}}
+\text{TF}(t,d) = \frac{f_{t,d}}{\sum_{w \in d}f_{w,d}}
 $$
 
 Document frequency counts how many documents contain a term:
 
 $$
-\text{DF}(t)
-=
-\left|\{d \in D:t \in d\}\right|
+\text{DF}(t) = \left|\{d \in D:t \in d\}\right|
 $$
 
 With smoothed inverse document frequency:
 
 $$
-\text{IDF}(t)
-=
-\log\left(\frac{1+D}{1+\text{DF}(t)}\right)+1
+\text{IDF}(t) = \log\left(\frac{1+D}{1+\text{DF}(t)}\right)+1
 $$
 
 The conceptual TF-IDF formulation is:
 
 $$
-\text{TFIDF}(t,d)
-=
-\text{TF}(t,d)\text{IDF}(t)
+\text{TFIDF}(t,d) = \text{TF}(t,d)\text{IDF}(t)
 $$
 
 The default `TfidfVectorizer` in scikit-learn uses raw term counts multiplied by IDF, followed by L2 normalization. It does not use the normalized TF formula above.
@@ -159,9 +151,7 @@ Text feature spaces can become large, especially when using word and character n
 Matrix sparsity is the proportion of zero-valued entries:
 
 $$
-\text{Sparsity}(X)
-=
-1-\frac{\text{nnz}(X)}{DV}
+\text{Sparsity}(X) = 1-\frac{\text{nnz}(X)}{DV}
 $$
 
 where \(\text{nnz}(X)\) is the number of nonzero entries.
@@ -183,9 +173,7 @@ $$
 Variance-based selection can remove constant features. For feature \(j\), its population variance is:
 
 $$
-\text{Var}(X_j)
-=
-\frac{1}{D}\sum_{i=1}^{D}(x_{ij}-\mu_j)^2
+\text{Var}(X_j) = \frac{1}{D}\sum_{i=1}^{D}(x_{ij}-\mu_j)^2
 $$
 
 where:
