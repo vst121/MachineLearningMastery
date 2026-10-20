@@ -92,9 +92,7 @@ It is useful when both false positives and false negatives matter. For multiclas
 For a dataset with class proportions represented by the class counts, a majority-class classifier always predicts the most frequent class.
 
 $$
-\text{Baseline Accuracy}
-=
-\frac{\max_c N_c}{N}
+\text{Baseline Accuracy} = \frac{\max_c N_c}{N}
 $$
 
 Here, \(N_c\) is the number of examples in class \(c\), and \(N\) is the total number of examples.
@@ -146,7 +144,7 @@ $$
 \frac{s}{\sqrt{n}}
 $$
 
-Here, \(\bar{x}\) is the sample mean, \(s\) is the sample standard deviation, \(n\) is the sample size, and the critical value comes from the Student's t-distribution.
+Here, $$\(\bar{x}\)$$ is the sample mean, \(s\) is the sample standard deviation, \(n\) is the sample size, and the critical value comes from the Student's t-distribution.
 
 The assumptions behind an interval matter. For example, individual examples from a test set, repeated cross-validation folds, and repeated training runs are different experimental units and should not be treated as interchangeable.
 
