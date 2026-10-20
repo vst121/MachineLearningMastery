@@ -32,9 +32,9 @@ $$
 
 where:
 
-- $$ \(\mathbf{X}\) $$ represents the encoded input sequence.
-- $$ \(f\_{\theta}\) $$ is the pretrained model.
-- $$ \(\mathbf{H}\) $$ contains the resulting hidden representations.
+- $$\(\mathbf{X}\)$$ represents the encoded input sequence.
+- $$\(f\_{\theta}\)$$ is the pretrained model.
+- $$\(\mathbf{H}\)$$ contains the resulting hidden representations.
 
 Pretrained parameters can be used directly for inference or adapted to downstream tasks through additional training.
 
@@ -89,7 +89,7 @@ $$
 \mathbf{p} = \text{softmax}(W\mathbf{h} + \mathbf{b})
 $$
 
-where \(W\) and $$ \(\mathbf{b}\) $$ are the classification head's parameters.
+where \(W\) and $$\(\mathbf{b}\)$$ are the classification head's parameters.
 
 Different NLP tasks require different output structures:
 
