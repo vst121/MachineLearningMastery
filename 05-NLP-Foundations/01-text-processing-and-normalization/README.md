@@ -25,7 +25,7 @@ Unicode normalization provides standardized representations:
 
 For example, NFC can make canonically equivalent representations of an accented character identical.
 
-Let \(D\) be the original document and \(T_{\text{NFC}}\) the NFC transformation:
+Let \(D\) be the original document and \(T\_{\text{NFC}}\) the NFC transformation:
 
 $$
 D' = T_{\text{NFC}}(D)
@@ -51,7 +51,7 @@ Text can contain repeated spaces, tabs, and newline characters.
 A regular expression can replace consecutive whitespace characters with one space:
 
 $$
-D' = \operatorname{join}(\operatorname{split}(D))
+D' = \text{join}(\text{split}(D))
 $$
 
 This expression represents splitting on whitespace and joining the resulting parts with single spaces.
