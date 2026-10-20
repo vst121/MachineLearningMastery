@@ -89,7 +89,7 @@ $$
 \mathbf{p} = \text{softmax}(W\mathbf{h} + \mathbf{b})
 $$
 
-where \(W\) and $$\(\mathbf{b}\)$$ are the classification head's parameters.
+where $$\(W\)$$ and $$\(\mathbf{b}\)$$ are the classification head's parameters.
 
 Different NLP tasks require different output structures:
 
@@ -127,7 +127,7 @@ The similarity of contextual representations provides a useful diagnostic, but i
 
 Inference latency measures the time required for a model to produce an output for a given input.
 
-For \(K\) measured forward passes, average latency is:
+For $$\(K\)$$ measured forward passes, average latency is:
 
 $$
 t_{\text{avg}} = \frac{1}{K}
