@@ -21,7 +21,7 @@ $$
 \mathbf{x}=(x_1,x_2,\ldots,x_T)
 $$
 
-Here, \(T\) is the sequence length and each \(x_t\) is a token ID.
+Here, \(T\) is the sequence length and each $$\(x_t\)$$ is a token ID.
 
 A vocabulary maps tokens to integer IDs. Special tokens such as `<PAD>` and `<UNK>` represent padding and unknown words.
 
@@ -122,18 +122,14 @@ $$
 Accuracy measures the proportion of correct predictions.
 
 $$
-\operatorname{Accuracy}
-=
-\frac{\text{Correct predictions}}
+\text{Accuracy} = \frac{\text{Correct predictions}}
 {\text{Total predictions}}
 $$
 
 Precision, recall, and F1-score help identify class-specific weaknesses. Macro F1 gives equal weight to each class's F1-score.
 
 $$
-F_{1,\text{macro}}
-=
-\frac{1}{C}\sum_{c=1}^{C}F_{1,c}
+F_{1,\text{macro}} = \frac{1}{C}\sum_{c=1}^{C}F_{1,c}
 $$
 
 A confusion matrix and inspection of individual mistakes provide additional diagnostic information.
