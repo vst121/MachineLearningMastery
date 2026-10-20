@@ -94,7 +94,7 @@ P(w\mid c)=
 {N_c+\alpha V}
 $$
 
-Here, \(N\_{w,c}\) is the count of a term in class \(c\), \(N_c\) is the total term count for that class, \(V\) is the vocabulary size, and \(\alpha\) is the smoothing parameter.
+Here, $$\(N\_{w,c}\)$$ is the count of a term in class \(c\), $$\(N_c\) $$ is the total term count for that class, \(V\) is the vocabulary size, and $$\(\alpha\)$$ is the smoothing parameter.
 
 Multinomial Naive Bayes is particularly useful as a lightweight baseline for count-based text classification. It can also work with nonnegative TF-IDF features.
 
