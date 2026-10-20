@@ -56,9 +56,7 @@ When \(d\) is much smaller than \(V\), dense vectors require fewer values to sto
 Cosine similarity measures the angle between two nonzero vectors.
 
 $$
-\operatorname{cosine}(\mathbf{u},\mathbf{v})
-=
-\frac{\mathbf{u}\cdot\mathbf{v}}
+\text{cosine}(\mathbf{u},\mathbf{v}) = \frac{\mathbf{u}\cdot\mathbf{v}}
 {\|\mathbf{u}\|_2\|\mathbf{v}\|_2}
 $$
 
@@ -75,9 +73,7 @@ Cosine similarity is invariant to positive scaling of either vector. It measures
 Euclidean distance measures the straight-line distance between two vectors.
 
 $$
-d(\mathbf{u},\mathbf{v})
-=
-\sqrt{\sum_{i=1}^{d}(u_i-v_i)^2}
+d(\mathbf{u},\mathbf{v}) = \sqrt{\sum_{i=1}^{d}(u_i-v_i)^2}
 $$
 
 Unlike cosine similarity, Euclidean distance is affected by vector magnitude.
@@ -85,9 +81,7 @@ Unlike cosine similarity, Euclidean distance is affected by vector magnitude.
 For unit-normalized vectors, cosine similarity and Euclidean distance are related:
 
 $$
-\|\hat{\mathbf{u}}-\hat{\mathbf{v}}\|_2^2
-=
-2\left(1-\operatorname{cosine}(\mathbf{u},\mathbf{v})\right)
+\|\hat{\mathbf{u}}-\hat{\mathbf{v}}\|_2^2 = 2\left(1-\text{cosine}(\mathbf{u},\mathbf{v})\right)
 $$
 
 Therefore, ranking unit-normalized vectors by cosine similarity produces the same ordering as ranking them by increasing Euclidean distance.
@@ -98,8 +92,8 @@ For a query word \(q\), nearest-neighbor retrieval ranks other words by similari
 
 $$
 N_k(q)=
-\operatorname{TopK}_{w\ne q}
-\operatorname{cosine}(\mathbf{v}_q,\mathbf{v}_w)
+\text{TopK}_{w\ne q}
+\text{cosine}(\mathbf{v}_q,\mathbf{v}_w)
 $$
 
 Nearest neighbors can reveal distributional relationships, but related words are not necessarily synonyms. Results depend on the embedding model, its training corpus, and the candidate vocabulary.
