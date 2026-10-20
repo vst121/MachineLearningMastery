@@ -24,7 +24,7 @@ $$
 Each matrix entry represents the frequency of a vocabulary term in a document:
 
 $$
-X_{ij} = \operatorname{count}(t_j,d_i)
+X_{ij} = \text{count}(t_j,d_i)
 $$
 
 Binary features record only whether a term appears:
@@ -46,6 +46,7 @@ $$
 Implementation: `01_bag_of_words.py`
 
 Experiments:
+
 - Vocabulary construction and term-to-index mapping.
 - Document-term matrix generation.
 - Raw term counts versus binary features.
@@ -83,6 +84,7 @@ Combining n-gram sizes preserves more local context but can substantially increa
 Implementation: `02_ngram_features.py`
 
 Experiments:
+
 - Word unigrams, bigrams, and trigrams.
 - Comparison of different n-gram ranges.
 - Character n-grams.
@@ -95,7 +97,7 @@ TF-IDF gives higher weights to terms that are important within a document but re
 Term frequency can be normalized by the number of token occurrences:
 
 $$
-\operatorname{TF}(t,d)
+\text{TF}(t,d)
 =
 \frac{f_{t,d}}{\sum_{w \in d}f_{w,d}}
 $$
@@ -103,7 +105,7 @@ $$
 Document frequency counts how many documents contain a term:
 
 $$
-\operatorname{DF}(t)
+\text{DF}(t)
 =
 \left|\{d \in D:t \in d\}\right|
 $$
@@ -111,17 +113,17 @@ $$
 With smoothed inverse document frequency:
 
 $$
-\operatorname{IDF}(t)
+\text{IDF}(t)
 =
-\log\left(\frac{1+D}{1+\operatorname{DF}(t)}\right)+1
+\log\left(\frac{1+D}{1+\text{DF}(t)}\right)+1
 $$
 
 The conceptual TF-IDF formulation is:
 
 $$
-\operatorname{TFIDF}(t,d)
+\text{TFIDF}(t,d)
 =
-\operatorname{TF}(t,d)\operatorname{IDF}(t)
+\text{TF}(t,d)\text{IDF}(t)
 $$
 
 The default `TfidfVectorizer` in scikit-learn uses raw term counts multiplied by IDF, followed by L2 normalization. It does not use the normalized TF formula above.
@@ -142,6 +144,7 @@ $$
 Implementation: `03_tf_idf.py`
 
 Experiments:
+
 - Normalized term-frequency calculation.
 - Document-frequency analysis.
 - Manual verification of smoothed IDF.
@@ -156,31 +159,31 @@ Text feature spaces can become large, especially when using word and character n
 Matrix sparsity is the proportion of zero-valued entries:
 
 $$
-\operatorname{Sparsity}(X)
+\text{Sparsity}(X)
 =
-1-\frac{\operatorname{nnz}(X)}{DV}
+1-\frac{\text{nnz}(X)}{DV}
 $$
 
-where \(\operatorname{nnz}(X)\) is the number of nonzero entries.
+where \(\text{nnz}(X)\) is the number of nonzero entries.
 
 Document-frequency filtering reduces the vocabulary by retaining terms that occur in a suitable number of documents.
 
 Minimum document frequency:
 
 $$
-\operatorname{DF}(t)\geq m
+\text{DF}(t)\geq m
 $$
 
 Maximum document-frequency proportion:
 
 $$
-\frac{\operatorname{DF}(t)}{D}\leq\tau
+\frac{\text{DF}(t)}{D}\leq\tau
 $$
 
 Variance-based selection can remove constant features. For feature \(j\), its population variance is:
 
 $$
-\operatorname{Var}(X_j)
+\text{Var}(X_j)
 =
 \frac{1}{D}\sum_{i=1}^{D}(x_{ij}-\mu_j)^2
 $$
@@ -206,12 +209,13 @@ $$
 $$
 
 $$
-\text{CSR: }O(\operatorname{nnz}(X)+D)
+\text{CSR: }O(\text{nnz}(X)+D)
 $$
 
 Implementation: `04_feature_selection_and_sparse_matrices.py`
 
 Experiments:
+
 - Count and TF-IDF matrix sparsity.
 - Minimum and maximum document-frequency filtering.
 - Variance thresholding.
@@ -222,12 +226,12 @@ Experiments:
 
 ## Implementation and Experiments
 
-| File | Main experiment | Key outcome |
-|---|---|---|
-| `01_bag_of_words.py` | Bag of Words | Vocabulary and count/binary matrices |
-| `02_ngram_features.py` | Word and character n-grams | Contextual features and dimensionality |
-| `03_tf_idf.py` | TF-IDF | Term importance and normalized vectors |
-| `04_feature_selection_and_sparse_matrices.py` | Feature selection | Reduced feature spaces and efficient storage |
+| File                                          | Main experiment            | Key outcome                                  |
+| --------------------------------------------- | -------------------------- | -------------------------------------------- |
+| `01_bag_of_words.py`                          | Bag of Words               | Vocabulary and count/binary matrices         |
+| `02_ngram_features.py`                        | Word and character n-grams | Contextual features and dimensionality       |
+| `03_tf_idf.py`                                | TF-IDF                     | Term importance and normalized vectors       |
+| `04_feature_selection_and_sparse_matrices.py` | Feature selection          | Reduced feature spaces and efficient storage |
 
 The implementations use scikit-learn, NumPy, and SciPy. Run individual experiments from the repository root using `uv run python` followed by the relevant script path.
 
