@@ -32,9 +32,9 @@ $$
 
 where:
 
-- \(\mathbf{X}\) represents the encoded input sequence.
-- \(f\_{\theta}\) is the pretrained model.
-- \(\mathbf{H}\) contains the resulting hidden representations.
+- $$ \(\mathbf{X}\) $$ represents the encoded input sequence.
+- $$ \(f\_{\theta}\) $$ is the pretrained model.
+- $$ \(\mathbf{H}\) $$ contains the resulting hidden representations.
 
 Pretrained parameters can be used directly for inference or adapted to downstream tasks through additional training.
 
@@ -49,9 +49,7 @@ Pretrained parameters can be used directly for inference or adapted to downstrea
 For causal language modeling, the probability of a sequence is factorized as:
 
 $$
-P(x_1, x_2, \ldots, x_n)
-=
-\prod_{t=1}^{n}
+P(x_1, x_2, \ldots, x_n) = \prod_{t=1}^{n}
 P(x_t \mid x_1, \ldots, x_{t-1})
 $$
 
@@ -62,9 +60,7 @@ A causal attention mask prevents a token from attending to future positions. Enc
 The total parameter count is the sum of the parameters in the model:
 
 $$
-N_{\text{parameters}}
-=
-\sum_{p \in \theta} \operatorname{numel}(p)
+N_{\text{parameters}} = \sum_{p \in \theta} \text{numel}(p)
 $$
 
 Trainable parameters are those for which gradient-based optimization is enabled.
@@ -90,10 +86,10 @@ Pretrained representations can be combined with task-specific output layers.
 For sequence classification, a model may transform a sequence representation into class probabilities:
 
 $$
-\mathbf{p} = \operatorname{softmax}(W\mathbf{h} + \mathbf{b})
+\mathbf{p} = \text{softmax}(W\mathbf{h} + \mathbf{b})
 $$
 
-where \(W\) and \(\mathbf{b}\) are the classification head's parameters.
+where \(W\) and $$ \(\mathbf{b}\) $$ are the classification head's parameters.
 
 Different NLP tasks require different output structures:
 
@@ -121,9 +117,7 @@ For example, the word _bank_ can refer to a financial institution or the side of
 Cosine similarity measures the angular similarity between two vectors:
 
 $$
-\operatorname{cosine}(\mathbf{u}, \mathbf{v})
-=
-\frac{\mathbf{u}^{\top}\mathbf{v}}
+\text{cosine}(\mathbf{u}, \mathbf{v}) = \frac{\mathbf{u}^{\top}\mathbf{v}}
 {\|\mathbf{u}\|_2 \|\mathbf{v}\|_2}
 $$
 
@@ -136,9 +130,7 @@ Inference latency measures the time required for a model to produce an output fo
 For \(K\) measured forward passes, average latency is:
 
 $$
-t_{\text{avg}}
-=
-\frac{1}{K}
+t_{\text{avg}} = \frac{1}{K}
 \sum_{i=1}^{K} t_i
 $$
 
