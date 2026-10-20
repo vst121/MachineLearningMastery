@@ -73,9 +73,9 @@ $$
 
 where:
 
-- \(B\) is the batch size.
-- \(L\) is the sequence length.
-- \(d\) is the model's hidden dimension.
+- $$\(B\)$$ is the batch size.
+- $$\(L\)$$ is the sequence length.
+- $$\(d\)$$ is the model's hidden dimension.
 
 Each token receives a contextual representation that incorporates information from its surrounding sequence, according to the model's attention architecture.
 
