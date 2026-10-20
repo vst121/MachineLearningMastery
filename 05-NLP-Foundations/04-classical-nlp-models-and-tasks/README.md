@@ -35,10 +35,10 @@ A typical pipeline consists of text vectorization, model training, prediction, a
 Bag of Words represents documents using term counts.
 
 $$
-X_{d,w}=\operatorname{count}(w,d)
+X_{d,w}=\text{count}(w,d)
 $$
 
-Here, \(X_{d,w}\) is the number of occurrences of word \(w\) in document \(d\).
+Here, \(X\_{d,w}\) is the number of occurrences of word \(w\) in document \(d\).
 
 Binary occurrence features instead record whether a word appears:
 
@@ -57,15 +57,13 @@ Both representations produce sparse document-term matrices suitable for classica
 TF-IDF assigns greater weight to terms that are informative within a document and less weight to terms appearing across many documents.
 
 $$
-\operatorname{TFIDF}(w,d)
-=
-\operatorname{TF}(w,d)
+\text{TFIDF}(w,d) = \text{TF}(w,d)
 \left(
-\log\frac{1+D}{1+\operatorname{DF}(w)}+1
+\log\frac{1+D}{1+\text{DF}(w)}+1
 \right)
 $$
 
-Where \(D\) is the number of documents and \(\operatorname{DF}(w)\) is the number of documents containing the term.
+Where \(D\) is the number of documents and \(\text{DF}(w)\) is the number of documents containing the term.
 
 The exact weighting depends on the vectorizer configuration. Scikit-learn's default TF-IDF vectorizer also applies L2 normalization to nonzero document vectors.
 
@@ -96,7 +94,7 @@ P(w\mid c)=
 {N_c+\alpha V}
 $$
 
-Here, \(N_{w,c}\) is the count of a term in class \(c\), \(N_c\) is the total term count for that class, \(V\) is the vocabulary size, and \(\alpha\) is the smoothing parameter.
+Here, \(N\_{w,c}\) is the count of a term in class \(c\), \(N_c\) is the total term count for that class, \(V\) is the vocabulary size, and \(\alpha\) is the smoothing parameter.
 
 Multinomial Naive Bayes is particularly useful as a lightweight baseline for count-based text classification. It can also work with nonnegative TF-IDF features.
 
@@ -107,9 +105,7 @@ Logistic Regression estimates class probabilities from a weighted combination of
 For binary classification:
 
 $$
-P(y=1\mid\mathbf{x})
-=
-\frac{1}{1+e^{-(\mathbf{w}^{T}\mathbf{x}+b)}}
+P(y=1\mid\mathbf{x}) = \frac{1}{1+e^{-(\mathbf{w}^{T}\mathbf{x}+b)}}
 $$
 
 The decision score is:
@@ -123,9 +119,7 @@ A positive score favors the class associated with the positive coefficient direc
 The model learns feature weights that help distinguish classes. Regularization controls model complexity.
 
 $$
-J(\mathbf{w},b)
-=
--\frac{1}{N}\sum_{i=1}^{N}
+J(\mathbf{w},b) = -\frac{1}{N}\sum_{i=1}^{N}
 \left[
 y_i\log p_i+(1-y_i)\log(1-p_i)
 \right]
@@ -150,37 +144,33 @@ For reliable model selection, use cross-validation on training data and reserve 
 Accuracy measures the proportion of correct predictions:
 
 $$
-\operatorname{Accuracy}
-=
-\frac{TP+TN}{TP+TN+FP+FN}
+\text{Accuracy} = \frac{TP+TN}{TP+TN+FP+FN}
 $$
 
 Precision measures the reliability of positive predictions:
 
 $$
-\operatorname{Precision}=\frac{TP}{TP+FP}
+\text{Precision}=\frac{TP}{TP+FP}
 $$
 
 Recall measures the proportion of actual positive examples detected:
 
 $$
-\operatorname{Recall}=\frac{TP}{TP+FN}
+\text{Recall}=\frac{TP}{TP+FN}
 $$
 
 F1-score balances precision and recall:
 
 $$
 F_1=
-2\frac{\operatorname{Precision}\operatorname{Recall}}
-{\operatorname{Precision}+\operatorname{Recall}}
+2\frac{\text{Precision}\text{Recall}}
+{\text{Precision}+\text{Recall}}
 $$
 
 Macro F1 calculates F1 independently for each class and then averages the results:
 
 $$
-F_{1,\text{macro}}
-=
-\frac{1}{C}\sum_{c=1}^{C}F_{1,c}
+F_{1,\text{macro}} = \frac{1}{C}\sum_{c=1}^{C}F_{1,c}
 $$
 
 Macro averaging gives each class equal weight, making it useful when class performance must be compared independently of class frequency.
@@ -218,12 +208,12 @@ Predicted probabilities also require care. A high maximum probability does not g
 
 ## 🧪 Implementation and Experiments
 
-| File | Experiment |
-|---|---|
-| `01_naive_bayes_text_classification.py` | Build a Bag of Words and Multinomial Naive Bayes pipeline. Evaluate classification metrics, inspect class probabilities and word likelihoods, and compare count-based with binary features. |
-| `02_tfidf_logistic_regression.py` | Train Logistic Regression using TF-IDF features. Inspect class probabilities, decision scores, influential feature weights, and behavior on unfamiliar vocabulary. |
-| `03_text_classification_model_comparison.py` | Compare Bag of Words and TF-IDF with Naive Bayes and Logistic Regression using the same stratified train-test split and multiple metrics. |
-| `04_text_classification_error_analysis.py` | Inspect false positives, false negatives, class-specific metrics, ambiguous texts, and predictions for documents with no known features. |
+| File                                         | Experiment                                                                                                                                                                                  |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `01_naive_bayes_text_classification.py`      | Build a Bag of Words and Multinomial Naive Bayes pipeline. Evaluate classification metrics, inspect class probabilities and word likelihoods, and compare count-based with binary features. |
+| `02_tfidf_logistic_regression.py`            | Train Logistic Regression using TF-IDF features. Inspect class probabilities, decision scores, influential feature weights, and behavior on unfamiliar vocabulary.                          |
+| `03_text_classification_model_comparison.py` | Compare Bag of Words and TF-IDF with Naive Bayes and Logistic Regression using the same stratified train-test split and multiple metrics.                                                   |
+| `04_text_classification_error_analysis.py`   | Inspect false positives, false negatives, class-specific metrics, ambiguous texts, and predictions for documents with no known features.                                                    |
 
 ### Tools and Libraries
 
