@@ -82,12 +82,12 @@ For question answering, exact match and token-level F1 provide complementary mea
 
 ## Implementation and Experiments
 
-| File | Experiment |
-|---|---|
-| `01_token_classification_and_information_extraction.py` | Inspect token-level predictions, BIO-style labels, entity aggregation, structured extraction, and exact-match entity precision, recall, and F1. |
-| `02_document_classification_and_hierarchical_processing.py` | Compare truncation, overlapping chunks, mean-confidence aggregation, and majority voting for long-document classification. |
-| `03_question_answering_and_document_grounding.py` | Extract answer spans, inspect confidence scores and character offsets, validate source correspondence, and evaluate answers against references. |
-| `04_document_understanding_pipeline.py` | Integrate preprocessing, chunking, classification, entity extraction, and question answering into a reusable pipeline that produces structured JSON output. |
+| File                                                        | Experiment                                                                                                                                                  |
+| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `01_token_classification_and_information_extraction.py`     | Inspect token-level predictions, BIO-style labels, entity aggregation, structured extraction, and exact-match entity precision, recall, and F1.             |
+| `02_document_classification_and_hierarchical_processing.py` | Compare truncation, overlapping chunks, mean-confidence aggregation, and majority voting for long-document classification.                                  |
+| `03_question_answering_and_document_grounding.py`           | Extract answer spans, inspect confidence scores and character offsets, validate source correspondence, and evaluate answers against references.             |
+| `04_document_understanding_pipeline.py`                     | Integrate preprocessing, chunking, classification, entity extraction, and question answering into a reusable pipeline that produces structured JSON output. |
 
 The experiments use pretrained Hugging Face Transformers models and illustrative document examples. Their results demonstrate implementation techniques rather than establishing production-level accuracy.
 

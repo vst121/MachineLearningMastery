@@ -29,9 +29,7 @@ Attention allows a model to determine which parts of an input are most relevant 
 Scaled dot-product attention computes query-key similarities, normalizes the scores, and combines the value vectors.
 
 $$
-\text{Attention}(Q,K,V)
-=
-\text{softmax}
+\text{Attention}(Q,K,V) = \text{softmax}
 \left(
 \frac{QK^T}{\sqrt{d_k}}
 \right)V

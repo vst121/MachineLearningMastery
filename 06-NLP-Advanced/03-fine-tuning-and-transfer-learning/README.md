@@ -18,7 +18,7 @@ Transfer learning reuses knowledge learned during pretraining to solve a downstr
 For model parameters $$\theta$$, fine-tuning minimizes a task-specific loss:
 
 $$
-\theta^* = \underset{\theta}{\operatorname{argmin}} \; \mathcal{L}_{\text{task}}(\theta)
+\theta^* = \underset{\theta}{\text{argmin}} \; \mathcal{L}_{\text{task}}(\theta)
 $$
 
 A pretrained model typically contains a Transformer backbone and a task-specific classification head.
@@ -38,17 +38,13 @@ Here, $$\eta$$ is the learning rate. A smaller learning rate can help preserve u
 Training loss measures how well the model fits training examples. Validation loss helps assess generalization to examples excluded from gradient updates.
 
 $$
-\mathcal{L}_{\text{train}}
-=
-\frac{1}{N_{\text{train}}}
+\mathcal{L}_{\text{train}} = \frac{1}{N_{\text{train}}}
 \sum_{i=1}^{N_{\text{train}}}
 \ell(f_{\theta}(x_i), y_i)
 $$
 
 $$
-\mathcal{L}_{\text{validation}}
-=
-\frac{1}{N_{\text{validation}}}
+\mathcal{L}_{\text{validation}} = \frac{1}{N_{\text{validation}}}
 \sum_{i=1}^{N_{\text{validation}}}
 \ell(f_{\theta}(x_i), y_i)
 $$
@@ -61,7 +57,7 @@ Early stopping terminates training when a monitored validation metric stops impr
 
 $$
 e^* =
-\underset{e \in \{1,\ldots,E\}}{\operatorname{argmin}}
+\underset{e \in \{1,\ldots,E\}}{\text{argmin}}
 \mathcal{L}_{\text{validation}}(\theta_e)
 $$
 
@@ -78,9 +74,7 @@ Transfer learning can control which parameters are updated during fine-tuning.
 The percentage of trainable parameters is:
 
 $$
-P_{\text{trainable}}
-=
-100 \cdot
+P_{\text{trainable}} = 100 \cdot
 \frac{N_{\text{trainable}}}{N_{\text{total}}}
 $$
 
@@ -91,9 +85,7 @@ Freezing layers reduces gradient computation and optimizer state requirements, a
 Accuracy measures the proportion of correct predictions:
 
 $$
-\text{Accuracy}
-=
-\frac{TP + TN}{TP + TN + FP + FN}
+\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
 $$
 
 Precision and recall measure positive-prediction quality and positive-class coverage:

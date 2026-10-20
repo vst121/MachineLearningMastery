@@ -107,9 +107,7 @@ $$
 The gradient with respect to the weight is obtained through the chain rule:
 
 $$
-\frac{\partial L}{\partial w}
-=
-\frac{\partial L}{\partial a}
+\frac{\partial L}{\partial w} = \frac{\partial L}{\partial a}
 \frac{\partial a}{\partial z}
 \frac{\partial z}{\partial w}
 $$
@@ -131,9 +129,7 @@ $$
 Therefore:
 
 $$
-\frac{\partial L}{\partial w}
-=
-2(a-y)\sigma'(z)x
+\frac{\partial L}{\partial w} = 2(a-y)\sigma'(z)x
 $$
 
 This demonstrates how the gradient depends on the loss, activation function, and input.
